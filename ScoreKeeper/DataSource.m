@@ -28,4 +28,18 @@ static NSString * const cellIdentifier = @"identifier";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        ScoreKeeperTableViewCell *cell = self.allCells[indexPath.row];
+        [self.allCells removeObject:cell];
+    }
+    
+    // remove the cell from the table view with an animation
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    [tableView reloadData];
+}
+
+
 @end

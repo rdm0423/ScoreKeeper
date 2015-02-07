@@ -10,6 +10,8 @@
 
 @interface DataSource : NSObject <UITableViewDataSource>
 
+@property (nonatomic, strong) NSMutableArray *allCells;
+
 - (void)registerTableView:(UITableView *)tableView;
 
 @end

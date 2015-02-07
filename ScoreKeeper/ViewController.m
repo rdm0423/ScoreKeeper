@@ -30,7 +30,16 @@
     self.tableView.dataSource = self.dataSource;
     [self.dataSource registerTableView:self.tableView];
     
+    UINavigationItem *navItem = self.navigationItem;
+    navItem.leftBarButtonItem = self.editButtonItem;
+    
     [self.view addSubview:self.tableView];
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {

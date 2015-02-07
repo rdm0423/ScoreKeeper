@@ -52,6 +52,10 @@ static CGFloat height = 30;
     return self;
 }
 
+- (UITableViewCellEditingStyle)editingStyle {
+    return UITableViewCellEditingStyleDelete;
+}
+
 - (void)scoreStepper:(UIStepper *)sender {
     UIStepper *stepper = sender;
     double stepperValue = stepper.value;
