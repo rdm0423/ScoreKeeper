@@ -32,14 +32,20 @@
     
     UINavigationItem *navItem = self.navigationItem;
     navItem.leftBarButtonItem = self.editButtonItem;
+    navItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem:)];
     
     [self.view addSubview:self.tableView];
 }
 
+// enable editing mode
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
     [self.tableView setEditing:editing animated:YES];
 
+}
+
+- (IBAction)addItem:(id)sender {
+    NSLog(@"add item");
 }
 
 - (void)didReceiveMemoryWarning {

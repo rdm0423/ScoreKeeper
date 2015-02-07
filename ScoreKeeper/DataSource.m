@@ -28,6 +28,7 @@ static NSString * const cellIdentifier = @"identifier";
     return cell;
 }
 
+// method to ensure table view commit a delete command
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -40,6 +41,5 @@ static NSString * const cellIdentifier = @"identifier";
     
     [tableView reloadData];
 }
-
 
 @end
