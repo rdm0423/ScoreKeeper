@@ -13,6 +13,7 @@
 		722C99071A85C6890097D7CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722C99061A85C6890097D7CA /* Images.xcassets */; };
 		722C990A1A85C6890097D7CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722C99081A85C6890097D7CA /* LaunchScreen.xib */; };
 		722C99161A85C6890097D7CA /* ScoreKeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 722C99151A85C6890097D7CA /* ScoreKeeperTests.m */; };
+		722C99211A85C7930097D7CA /* ScoreKeeperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722C99201A85C7930097D7CA /* ScoreKeeperTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		722C990F1A85C6890097D7CA /* ScoreKeeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoreKeeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		722C99141A85C6890097D7CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		722C99151A85C6890097D7CA /* ScoreKeeperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreKeeperTests.m; sourceTree = "<group>"; };
+		722C991F1A85C7930097D7CA /* ScoreKeeperTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreKeeperTableViewCell.h; sourceTree = "<group>"; };
+		722C99201A85C7930097D7CA /* ScoreKeeperTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreKeeperTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 				722C98FE1A85C6890097D7CA /* AppDelegate.m */,
 				722C99001A85C6890097D7CA /* ViewController.h */,
 				722C99011A85C6890097D7CA /* ViewController.m */,
+				722C991F1A85C7930097D7CA /* ScoreKeeperTableViewCell.h */,
+				722C99201A85C7930097D7CA /* ScoreKeeperTableViewCell.m */,
 				722C99061A85C6890097D7CA /* Images.xcassets */,
 				722C99081A85C6890097D7CA /* LaunchScreen.xib */,
 				722C98F91A85C6890097D7CA /* Supporting Files */,
@@ -215,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				722C99211A85C7930097D7CA /* ScoreKeeperTableViewCell.m in Sources */,
 				722C99021A85C6890097D7CA /* ViewController.m in Sources */,
 				722C98FF1A85C6890097D7CA /* AppDelegate.m in Sources */,
 				722C98FC1A85C6890097D7CA /* main.m in Sources */,
