@@ -18,7 +18,7 @@ static NSString * const cellIdentifier = @"identifier";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return self.allCells.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -34,17 +34,23 @@ static NSString * const cellIdentifier = @"identifier";
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         ScoreKeeperTableViewCell *cell = self.allCells[indexPath.row];
         [self.allCells removeObject:cell];
+        
+        // remove the cell from the table view with an animation
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     
-    // remove the cell from the table view with an animation
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     
-    [tableView reloadData];
+//    [tableView reloadData];
 }
 
-- (void)addNewCell:(UITableView *)tableView {
+- (NSIndexPath *)addNewCell:(UITableView *)tableView {
     ScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     [self.allCells addObject:cell];
+    
+    NSInteger lastRow = [self.allCells indexOfObject:cell];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    
+    return indexPath;
 }
 
 

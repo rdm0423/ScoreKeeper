@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSMutableArray *allCells;
 
 - (void)registerTableView:(UITableView *)tableView;
-- (void)addNewCell:(UITableView *)tableView;
+- (NSIndexPath *)addNewCell:(UITableView *)tableView;
 
 @end

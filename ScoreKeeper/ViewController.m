@@ -29,6 +29,7 @@
     self.dataSource = [DataSource new];
     self.tableView.dataSource = self.dataSource;
     [self.dataSource registerTableView:self.tableView];
+    self.dataSource.allCells = [[NSMutableArray alloc] init];
     
     UINavigationItem *navItem = self.navigationItem;
     navItem.leftBarButtonItem = self.editButtonItem;
@@ -45,7 +46,10 @@
 }
 
 - (IBAction)addItem:(id)sender {
-    NSLog(@"add item");
+    NSIndexPath *indexPath = [self.dataSource addNewCell:self.tableView];
+    
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    
 }
 
 - (void)didReceiveMemoryWarning {
