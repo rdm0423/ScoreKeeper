@@ -42,4 +42,20 @@ static NSString * const cellIdentifier = @"identifier";
     [tableView reloadData];
 }
 
+- (void)addNewCell:(UITableView *)tableView {
+    ScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    [self.allCells addObject:cell];
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    ScoreKeeperTableViewCell *cell = [self.allCells objectAtIndex:sourceIndexPath.row];
+    [self.allCells removeObject:cell];
+    [self.allCells insertObject:cell atIndex:destinationIndexPath.row];
+}
+
 @end
