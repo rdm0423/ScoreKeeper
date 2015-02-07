@@ -10,6 +10,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) UITableView *tableView;
+
 @end
 
 @implementation ViewController
@@ -17,6 +19,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // Add UITableView
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    self.title = @"Score Keeper";
+    
+    [self.view addSubview:self.tableView];
 }
 
 - (void)didReceiveMemoryWarning {
