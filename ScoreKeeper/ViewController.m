@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "DataSource.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) DataSource *dataSource;
 
 @end
 
@@ -23,6 +25,10 @@
     // Add UITableView
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     self.title = @"Score Keeper";
+    
+    self.dataSource = [DataSource new];
+    self.tableView.dataSource = self.dataSource;
+    [self.dataSource registerTableView:self.tableView];
     
     [self.view addSubview:self.tableView];
 }
