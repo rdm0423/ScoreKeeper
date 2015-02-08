@@ -35,6 +35,7 @@ static CGFloat height = 30;
     // UITextField to input name
     self.nameField = [[UITextField alloc] initWithFrame:CGRectMake(margin, 10, 110, height)];
     self.nameField.placeholder = @"name";
+    self.nameField.font = [UIFont fontWithName:@"Futura" size:16];
     self.nameField.textColor = [UIColor orangeColor];
     self.nameField.delegate = self;
     [self.contentView addSubview:self.nameField];
@@ -42,6 +43,7 @@ static CGFloat height = 30;
     // UILabel to display the score
     self.scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.contentView.frame.size.width / 2 + margin, 10, 40, height)];
     self.scoreLabel.text = @"0";
+    self.scoreLabel.font = [UIFont fontWithName:@"Futura" size:16];
     self.scoreLabel.textColor = [UIColor orangeColor];
     [self.contentView addSubview:self.scoreLabel];
     

@@ -28,7 +28,7 @@
     // change attributes of navigation bar title
     UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectZero];
     titleView.backgroundColor = [UIColor clearColor];
-    titleView.font = [UIFont boldSystemFontOfSize:20];
+    titleView.font = [UIFont fontWithName:@"Futura" size:20];
     titleView.textColor = [UIColor whiteColor];
     titleView.text = @"Score Keeper";
     self.navigationItem.titleView = titleView;
