@@ -29,10 +29,10 @@ static CGFloat height = 30;
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
+    // set the background color of the cell
     self.backgroundColor = [UIColor whiteColor];
     
     // UITextField to input name
-    
     self.nameField = [[UITextField alloc] initWithFrame:CGRectMake(margin, 10, 110, height)];
     self.nameField.placeholder = @"name";
     self.nameField.textColor = [UIColor orangeColor];
@@ -57,10 +57,12 @@ static CGFloat height = 30;
     return self;
 }
 
+// method to set editing style
 - (UITableViewCellEditingStyle)editingStyle {
     return UITableViewCellEditingStyleDelete;
 }
 
+// add target action method for UIStepper
 - (void)scoreStepper:(UIStepper *)sender {
     UIStepper *stepper = sender;
     double stepperValue = stepper.value;

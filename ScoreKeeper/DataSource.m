@@ -22,8 +22,8 @@ static NSString * const cellIdentifier = @"identifier";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
+    ScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     return cell;
 }
@@ -38,9 +38,6 @@ static NSString * const cellIdentifier = @"identifier";
         // remove the cell from the table view with an animation
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
-    
-    
-//    [tableView reloadData];
 }
 
 - (NSIndexPath *)addNewCell:(UITableView *)tableView {
@@ -53,7 +50,7 @@ static NSString * const cellIdentifier = @"identifier";
     return indexPath;
 }
 
-
+// methods for reordering rows
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
