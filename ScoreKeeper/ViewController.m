@@ -22,18 +22,39 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    // change status bar style
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    // change attributes of navigation bar title
+    UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectZero];
+    titleView.backgroundColor = [UIColor clearColor];
+    titleView.font = [UIFont boldSystemFontOfSize:20];
+    titleView.textColor = [UIColor whiteColor];
+    titleView.text = @"Score Keeper";
+    self.navigationItem.titleView = titleView;
+    [titleView sizeToFit];
+    
+    // set navigation bar background color
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = [UIColor orangeColor];
+    
     // Add UITableView
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    self.title = @"Score Keeper";
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView.backgroundColor = [UIColor whiteColor];
     
+    // data source stuff
     self.dataSource = [DataSource new];
     self.tableView.dataSource = self.dataSource;
     [self.dataSource registerTableView:self.tableView];
     self.dataSource.allCells = [[NSMutableArray alloc] init];
     
+    // set navigation bar items
     UINavigationItem *navItem = self.navigationItem;
     navItem.leftBarButtonItem = self.editButtonItem;
+    navItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     navItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem:)];
+    navItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     
     [self.view addSubview:self.tableView];
 }
@@ -45,6 +66,7 @@
 
 }
 
+// method to add new cells
 - (IBAction)addItem:(id)sender {
     NSIndexPath *indexPath = [self.dataSource addNewCell:self.tableView];
     
