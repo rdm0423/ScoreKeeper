@@ -8,13 +8,18 @@
 
 #import "DataSource.h"
 #import "ScoreKeeperTableViewCell.h"
+#import "IBScoreKeeperTableViewCell.h"
 
 static NSString * const cellIdentifier = @"identifier";
 
 @implementation DataSource
 
 - (void)registerTableView:(UITableView *)tableView {
-    [tableView registerClass:[ScoreKeeperTableViewCell class] forCellReuseIdentifier:cellIdentifier];
+    [tableView registerClass:[IBScoreKeeperTableViewCell class] forCellReuseIdentifier:cellIdentifier];
+}
+
+- (void)registerNib:(UITableView *)tableView {
+    [tableView registerNib:[UINib nibWithNibName:@"IBScoreKeeperTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -23,7 +28,7 @@ static NSString * const cellIdentifier = @"identifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    IBScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     return cell;
 }
@@ -32,16 +37,18 @@ static NSString * const cellIdentifier = @"identifier";
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        ScoreKeeperTableViewCell *cell = self.allCells[indexPath.row];
+        IBScoreKeeperTableViewCell *cell = self.allCells[indexPath.row];
         [self.allCells removeObject:cell];
         
         // remove the cell from the table view with an animation
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
     }
 }
 
+// get index path for adding cell
 - (NSIndexPath *)addNewCell:(UITableView *)tableView {
-    ScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    IBScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     [self.allCells addObject:cell];
     
     NSInteger lastRow = [self.allCells indexOfObject:cell];
@@ -56,7 +63,7 @@ static NSString * const cellIdentifier = @"identifier";
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    ScoreKeeperTableViewCell *cell = [self.allCells objectAtIndex:sourceIndexPath.row];
+    IBScoreKeeperTableViewCell *cell = [self.allCells objectAtIndex:sourceIndexPath.row];
     [self.allCells removeObject:cell];
     [self.allCells insertObject:cell atIndex:destinationIndexPath.row];
 }

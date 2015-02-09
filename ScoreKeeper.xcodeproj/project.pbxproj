@@ -15,6 +15,8 @@
 		722C99161A85C6890097D7CA /* ScoreKeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 722C99151A85C6890097D7CA /* ScoreKeeperTests.m */; };
 		722C99211A85C7930097D7CA /* ScoreKeeperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722C99201A85C7930097D7CA /* ScoreKeeperTableViewCell.m */; };
 		722C99241A85C8770097D7CA /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 722C99231A85C8770097D7CA /* DataSource.m */; };
+		72A2BD381A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A2BD361A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m */; };
+		72A2BD391A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A2BD371A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,9 @@
 		722C99201A85C7930097D7CA /* ScoreKeeperTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreKeeperTableViewCell.m; sourceTree = "<group>"; };
 		722C99221A85C8770097D7CA /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		722C99231A85C8770097D7CA /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		72A2BD351A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBScoreKeeperTableViewCell.h; sourceTree = "<group>"; };
+		72A2BD361A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBScoreKeeperTableViewCell.m; sourceTree = "<group>"; };
+		72A2BD371A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBScoreKeeperTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +98,9 @@
 				722C99201A85C7930097D7CA /* ScoreKeeperTableViewCell.m */,
 				722C99221A85C8770097D7CA /* DataSource.h */,
 				722C99231A85C8770097D7CA /* DataSource.m */,
+				72A2BD351A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.h */,
+				72A2BD361A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m */,
+				72A2BD371A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib */,
 				722C99061A85C6890097D7CA /* Images.xcassets */,
 				722C99081A85C6890097D7CA /* LaunchScreen.xib */,
 				722C98F91A85C6890097D7CA /* Supporting Files */,
@@ -206,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A2BD391A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib in Resources */,
 				722C990A1A85C6890097D7CA /* LaunchScreen.xib in Resources */,
 				722C99071A85C6890097D7CA /* Images.xcassets in Resources */,
 			);
@@ -230,6 +239,7 @@
 				722C99021A85C6890097D7CA /* ViewController.m in Sources */,
 				722C98FF1A85C6890097D7CA /* AppDelegate.m in Sources */,
 				722C98FC1A85C6890097D7CA /* main.m in Sources */,
+				72A2BD381A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +422,7 @@
 				722C991B1A85C6890097D7CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		722C991C1A85C6890097D7CA /* Build configuration list for PBXNativeTarget "ScoreKeeperTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +431,7 @@
 				722C991E1A85C6890097D7CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
