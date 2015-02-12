@@ -9,6 +9,7 @@
 #import "DataSource.h"
 #import "ScoreKeeperTableViewCell.h"
 #import "IBScoreKeeperTableViewCell.h"
+#import "PlayerController.h"
 
 static NSString * const cellIdentifier = @"identifier";
 
@@ -23,7 +24,7 @@ static NSString * const cellIdentifier = @"identifier";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.allCells.count;
+    return [PlayerController sharedInstance].players.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -37,8 +38,9 @@ static NSString * const cellIdentifier = @"identifier";
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        IBScoreKeeperTableViewCell *cell = self.allCells[indexPath.row];
-        [self.allCells removeObject:cell];
+        
+        Player *player = [PlayerController sharedInstance].players[indexPath.row];
+        [[PlayerController sharedInstance] removePlayer:player];
         
         // remove the cell from the table view with an animation
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];

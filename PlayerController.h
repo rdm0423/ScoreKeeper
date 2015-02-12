@@ -15,4 +15,8 @@
 
 + (PlayerController *)sharedInstance;
 
+- (void)addPlayer:(Player *)player;
+- (void)removePlayer:(Player *)player;
+- (void)replacePlayer:(Player *)oldPlayer withPlayer:(Player *)newPlayer;
+
 @end
