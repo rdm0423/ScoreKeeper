@@ -15,6 +15,8 @@
 		722C99161A85C6890097D7CA /* ScoreKeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 722C99151A85C6890097D7CA /* ScoreKeeperTests.m */; };
 		722C99211A85C7930097D7CA /* ScoreKeeperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722C99201A85C7930097D7CA /* ScoreKeeperTableViewCell.m */; };
 		722C99241A85C8770097D7CA /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 722C99231A85C8770097D7CA /* DataSource.m */; };
+		7258352F1A8D661F00479EFD /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 7258352E1A8D661F00479EFD /* Player.m */; };
+		725835321A8D679800479EFD /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725835311A8D679800479EFD /* PlayerController.m */; };
 		72A2BD381A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A2BD361A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m */; };
 		72A2BD391A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A2BD371A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -46,6 +48,10 @@
 		722C99201A85C7930097D7CA /* ScoreKeeperTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreKeeperTableViewCell.m; sourceTree = "<group>"; };
 		722C99221A85C8770097D7CA /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		722C99231A85C8770097D7CA /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		7258352D1A8D661F00479EFD /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ScoreKeeper/Images.xcassets/Player.h; sourceTree = "<group>"; };
+		7258352E1A8D661F00479EFD /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = ScoreKeeper/Images.xcassets/Player.m; sourceTree = "<group>"; };
+		725835301A8D679800479EFD /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
+		725835311A8D679800479EFD /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 		72A2BD351A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBScoreKeeperTableViewCell.h; sourceTree = "<group>"; };
 		72A2BD361A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBScoreKeeperTableViewCell.m; sourceTree = "<group>"; };
 		72A2BD371A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBScoreKeeperTableViewCell.xib; sourceTree = "<group>"; };
@@ -72,6 +78,10 @@
 		722C98ED1A85C6890097D7CA = {
 			isa = PBXGroup;
 			children = (
+				7258352D1A8D661F00479EFD /* Player.h */,
+				7258352E1A8D661F00479EFD /* Player.m */,
+				725835301A8D679800479EFD /* PlayerController.h */,
+				725835311A8D679800479EFD /* PlayerController.m */,
 				722C98F81A85C6890097D7CA /* ScoreKeeper */,
 				722C99121A85C6890097D7CA /* ScoreKeeperTests */,
 				722C98F71A85C6890097D7CA /* Products */,
@@ -239,6 +249,8 @@
 				722C99021A85C6890097D7CA /* ViewController.m in Sources */,
 				722C98FF1A85C6890097D7CA /* AppDelegate.m in Sources */,
 				722C98FC1A85C6890097D7CA /* main.m in Sources */,
+				7258352F1A8D661F00479EFD /* Player.m in Sources */,
+				725835321A8D679800479EFD /* PlayerController.m in Sources */,
 				72A2BD381A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
