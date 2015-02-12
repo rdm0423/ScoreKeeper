@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "DataSource.h"
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) DataSource *dataSource;
@@ -50,6 +50,9 @@
     [self.dataSource registerNib:self.tableView];
     self.dataSource.allCells = [[NSMutableArray alloc] init];
     
+    // delegate stuff
+    self.tableView.delegate = self;
+    
     // set navigation bar items
     UINavigationItem *navItem = self.navigationItem;
     navItem.leftBarButtonItem = self.editButtonItem;
@@ -73,6 +76,11 @@
     
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     
+}
+
+// deselect row when selecting row
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
