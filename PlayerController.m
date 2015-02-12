@@ -31,6 +31,50 @@ static NSString * const playerKey = @"player";
     return sharedInstance;
 }
 
+- (void)addPlayer:(Player *)player {
+    
+    if (!player) {
+        return;
+    }
+    
+    NSMutableArray *mutablePlayers = [[NSMutableArray alloc] initWithArray:self.players];
+    [mutablePlayers addObject:player];
+    
+    self.players = mutablePlayers;
+    [self saveToDefaults];
+}
+
+- (void)removePlayer:(Player *)player {
+    
+    if (!player) {
+        return;
+    }
+    
+    NSMutableArray *mutablePlayers = [[NSMutableArray alloc] initWithArray:self.players];
+    [mutablePlayers removeObject:player];
+    
+    self.players = mutablePlayers;
+    [self saveToDefaults];
+}
+
+- (void)replacePlayer:(Player *)oldPlayer withPlayer:(Player *)newPlayer {
+    
+    if (!newPlayer || !oldPlayer) {
+        return;
+    }
+    
+    NSMutableArray *mutablePlayers = [[NSMutableArray alloc] initWithArray:self.players];
+    
+    if ([mutablePlayers containsObject:oldPlayer]) {
+        
+        NSUInteger index = [mutablePlayers indexOfObject:oldPlayer];
+        [mutablePlayers replaceObjectAtIndex:index withObject:newPlayer];
+    }
+    
+    self.players = mutablePlayers;
+    [self saveToDefaults];
+}
+
 - (void)loadFromDefaults {
     
     NSArray *playerDictionaries = [[NSUserDefaults standardUserDefaults] objectForKey:playerKey];
@@ -38,6 +82,7 @@ static NSString * const playerKey = @"player";
     NSMutableArray *players = [[NSMutableArray alloc] init];
     
     for (NSDictionary *dictionary in playerDictionaries) {
+        
         [players addObject:[[Player alloc] initWithDictionary:dictionary]];
     }
     
@@ -49,6 +94,7 @@ static NSString * const playerKey = @"player";
     NSMutableArray *playerDictionaries = [[NSMutableArray alloc] init];
     
     for (Player *player in self.players) {
+        
         NSDictionary *dictionary = [player playerDictionary];
         [playerDictionaries addObject:dictionary];
     }
