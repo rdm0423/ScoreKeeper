@@ -8,6 +8,7 @@
 
 #import "GameListViewController.h"
 #import "GameListDataSource.h"
+#import "ViewController.h"
 
 @interface GameListViewController () <UITableViewDelegate>
 
@@ -57,6 +58,14 @@
     navItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     navItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem:)];
     navItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+}
+
+// deselect row when row is selected and push view controller to top of navigation stack
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ViewController *viewController = [[ViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
