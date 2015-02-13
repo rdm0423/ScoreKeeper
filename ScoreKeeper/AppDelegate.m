@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "GameListViewController.h"
 
 @interface AppDelegate ()
 
@@ -36,7 +36,7 @@
          }
      forState:UIControlStateNormal];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[GameListViewController new]];
     return YES;
 }
 
