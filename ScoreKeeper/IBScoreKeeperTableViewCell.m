@@ -7,10 +7,15 @@
 //
 
 #import "IBScoreKeeperTableViewCell.h"
+#import "PlayerController.h"
 
 @interface IBScoreKeeperTableViewCell () <UITextFieldDelegate>
 
 @end
+
+static NSString * const nameKey = @"name";
+static NSString * const scoreKey = @"score";
+static NSString * const playerKey = @"player";
 
 @implementation IBScoreKeeperTableViewCell
 
@@ -25,15 +30,30 @@
 }
 
 - (IBAction)scoreStepper:(id)sender {
-    UIStepper *stepper = sender;
-    double stepperValue = stepper.value;
+    self.stepper = sender;
+    double stepperValue = self.stepper.value;
     
     self.scoreLabel.text = [NSString stringWithFormat:@"%d", (int) stepperValue];
+    [self save];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.textField resignFirstResponder];
+    
     return YES;
+}
+
+- (void)save {
+    
+    Player *player = [[Player alloc] initWithDictionary:@{nameKey: self.textField.text, scoreKey: [NSString stringWithFormat:@"%d", (int) self.stepper.value]}];
+    
+    if (self.player) {
+        [[PlayerController sharedInstance] replacePlayer:self.player withPlayer:player];
+    } else {
+        [[PlayerController sharedInstance] addPlayer:player];
+    }
+//    self.player = player;
+
 }
 
 @end

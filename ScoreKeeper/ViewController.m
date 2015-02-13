@@ -51,7 +51,6 @@
     self.tableView.dataSource = self.dataSource;
     [self.dataSource registerTableView:self.tableView];
     [self.dataSource registerNib:self.tableView];
-    self.dataSource.allCells = [[NSMutableArray alloc] init];
     
     // delegate stuff
     self.tableView.delegate = self;

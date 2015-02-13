@@ -31,6 +31,12 @@ static NSString * const cellIdentifier = @"identifier";
     
     IBScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
+    // update player info for the table view cell
+    cell.player = [PlayerController sharedInstance].players[indexPath.row];
+    cell.textField.text = cell.player.name;
+    cell.scoreLabel.text = cell.player.score;
+    cell.stepper.value = [cell.player.score doubleValue];
+    
     return cell;
 }
 
@@ -51,7 +57,11 @@ static NSString * const cellIdentifier = @"identifier";
 // get index path for adding cell
 - (NSIndexPath *)addNewCell:(UITableView *)tableView {
     
+    IBScoreKeeperTableViewCell *cell = [[IBScoreKeeperTableViewCell alloc] init];
+    
     Player *player = [[Player alloc] init];
+    player.name = cell.textField.text;
+    player.score = cell.scoreLabel.text;
     [[PlayerController sharedInstance] addPlayer:player];
     
     NSInteger lastRow = [[PlayerController sharedInstance].players indexOfObject:player];
@@ -66,9 +76,6 @@ static NSString * const cellIdentifier = @"identifier";
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-//    IBScoreKeeperTableViewCell *cell = [self.allCells objectAtIndex:sourceIndexPath.row];
-//    [self.allCells removeObject:cell];
-//    [self.allCells insertObject:cell atIndex:destinationIndexPath.row];
     
     [[PlayerController sharedInstance] moveFromIndex:sourceIndexPath.row toNewIndex:destinationIndexPath.row];
 }
