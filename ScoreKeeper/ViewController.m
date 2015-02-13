@@ -78,14 +78,6 @@
     NSIndexPath *indexPath = [self.dataSource addNewCell:self.tableView];
     
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
-    
-    // code to save the data
-    IBScoreKeeperTableViewCell *cell = [[IBScoreKeeperTableViewCell alloc] init];
-    Player *player = [[Player alloc] init];
-    
-    player.name = cell.textField.text;
-    player.score = [NSString stringWithFormat:@"%f", cell.stepper.value];
-    [[PlayerController sharedInstance] addPlayer:player];
 }
 
 // deselect row when selecting row

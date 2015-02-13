@@ -103,6 +103,15 @@ static NSString * const playerKey = @"player";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-
+- (void)moveFromIndex:(NSInteger)oldIndex toNewIndex:(NSInteger)newIndex {
+    
+    NSMutableArray *mutablePlayers = [[NSMutableArray alloc] initWithArray:self.players];
+    Player *player = [mutablePlayers objectAtIndex:oldIndex];
+    [mutablePlayers removeObject:player];
+    [mutablePlayers insertObject:player atIndex:newIndex];
+    
+    self.players = mutablePlayers;
+    [self saveToDefaults];
+}
 
 @end

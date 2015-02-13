@@ -18,5 +18,6 @@
 - (void)addPlayer:(Player *)player;
 - (void)removePlayer:(Player *)player;
 - (void)replacePlayer:(Player *)oldPlayer withPlayer:(Player *)newPlayer;
+- (void)moveFromIndex:(NSInteger)oldIndex toNewIndex:(NSInteger)newIndex;
 
 @end

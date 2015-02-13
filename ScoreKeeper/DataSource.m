@@ -50,10 +50,11 @@ static NSString * const cellIdentifier = @"identifier";
 
 // get index path for adding cell
 - (NSIndexPath *)addNewCell:(UITableView *)tableView {
-    IBScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    [self.allCells addObject:cell];
     
-    NSInteger lastRow = [self.allCells indexOfObject:cell];
+    Player *player = [[Player alloc] init];
+    [[PlayerController sharedInstance] addPlayer:player];
+    
+    NSInteger lastRow = [[PlayerController sharedInstance].players indexOfObject:player];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     
     return indexPath;
@@ -65,9 +66,11 @@ static NSString * const cellIdentifier = @"identifier";
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    IBScoreKeeperTableViewCell *cell = [self.allCells objectAtIndex:sourceIndexPath.row];
-    [self.allCells removeObject:cell];
-    [self.allCells insertObject:cell atIndex:destinationIndexPath.row];
+//    IBScoreKeeperTableViewCell *cell = [self.allCells objectAtIndex:sourceIndexPath.row];
+//    [self.allCells removeObject:cell];
+//    [self.allCells insertObject:cell atIndex:destinationIndexPath.row];
+    
+    [[PlayerController sharedInstance] moveFromIndex:sourceIndexPath.row toNewIndex:destinationIndexPath.row];
 }
 
 @end
