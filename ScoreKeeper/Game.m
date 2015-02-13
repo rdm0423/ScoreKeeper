@@ -10,6 +10,7 @@
 
 static NSString * const gameNameKey = @"gameName";
 static NSString * const playersKey = @"players";
+static NSString * const gamesKey = @"games";
 
 @implementation Game
 

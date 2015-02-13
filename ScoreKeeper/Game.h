@@ -13,4 +13,7 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSArray *players;
 
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)gameDictionary;
+
 @end
