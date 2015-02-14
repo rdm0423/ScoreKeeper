@@ -7,6 +7,7 @@
 //
 
 #import "Game.h"
+#import "PlayerController.h"
 
 static NSString * const gameNameKey = @"gameName";
 static NSString * const playersKey = @"players";
@@ -35,6 +36,7 @@ static NSString * const gamesKey = @"games";
     }
     
     if (self.players) {
+        self.players = [PlayerController sharedInstance].players;
         dictionary[playersKey] = self.players;
     }
     

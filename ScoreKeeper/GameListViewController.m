@@ -60,12 +60,26 @@
     navItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
+// enable editing mode
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:YES];
+}
+
 // deselect row when row is selected and push view controller to top of navigation stack
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     ViewController *viewController = [[ViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
+    
+}
+
+// method for adding new table view cells
+- (IBAction)addItem:(id)sender {
+    NSIndexPath *indexPath = [self.dataSource addNewCell:self.tableView];
+    
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
 }
 
 - (void)didReceiveMemoryWarning {

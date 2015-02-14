@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GameListViewController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,16 +26,19 @@
     
     // changing font of the navigation bar item
     // create a shadow object
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = [UIColor whiteColor];
-    shadow.shadowOffset = CGSizeMake(0, 0);
+//    NSShadow *shadow = [[NSShadow alloc] init];
+//    shadow.shadowColor = [UIColor whiteColor];
+//    shadow.shadowOffset = CGSizeMake(0, 0);
+//    
+//    // change the font for all bar button items
+//    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
+//                   NSShadowAttributeName: shadow,
+//                     NSFontAttributeName:[UIFont fontWithName:@"Futura" size:12]
+//         }
+//     forState:UIControlStateNormal];
     
-    // change the font for all bar button items
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
-                   NSShadowAttributeName: shadow,
-                     NSFontAttributeName:[UIFont fontWithName:@"Futura" size:12]
-         }
-     forState:UIControlStateNormal];
+    NSDictionary *barButtonAppearanceDict = @{NSFontAttributeName: [UIFont fontWithName:@"Futura" size:12], NSForegroundColorAttributeName: [UIColor whiteColor]};
+    [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
     
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[GameListViewController new]];
     return YES;

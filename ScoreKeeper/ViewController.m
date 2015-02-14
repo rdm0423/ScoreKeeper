@@ -57,7 +57,7 @@
     
     // set navigation bar items
     UINavigationItem *navItem = self.navigationItem;
-    navItem.leftBarButtonItem = self.editButtonItem;
+//    navItem.leftBarButtonItem = self.editButtonItem;
     navItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     navItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem:)];
     navItem.rightBarButtonItem.tintColor = [UIColor whiteColor];

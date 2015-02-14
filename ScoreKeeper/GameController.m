@@ -52,6 +52,8 @@ static NSString * const gamesKey = @"games";
     
     NSMutableArray *mutableGames = [[NSMutableArray alloc] initWithArray:self.games];
     [mutableGames removeObject:game];
+    self.games = mutableGames;
+    
     [self saveToDefaults];
 }
 
