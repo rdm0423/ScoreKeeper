@@ -58,4 +58,14 @@ static NSString * const gameCell = @"cell";
     return indexPath;
 }
 
+// methods for reordering rows
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    [[GameController sharedInstance] moveFromIndex:sourceIndexPath.row toNewIndex:destinationIndexPath.row];
+}
+
 @end

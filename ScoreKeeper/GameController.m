@@ -102,4 +102,15 @@ static NSString * const gamesKey = @"games";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (void)moveFromIndex:(NSInteger)oldIndex toNewIndex:(NSInteger)newIndex {
+    
+    NSMutableArray *mutableGames = [[NSMutableArray alloc] initWithArray:self.games];
+    Game *game = [mutableGames objectAtIndex:oldIndex];
+    [mutableGames removeObject:game];
+    [mutableGames insertObject:game atIndex:newIndex];
+    
+    self.games = mutableGames;
+    [self saveToDefaults];
+}
+
 @end

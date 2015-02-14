@@ -18,5 +18,6 @@
 - (void)addGame:(Game *)game;
 - (void)removeGame:(Game *)game;
 - (void)replaceGame:(Game *)oldGame withGame:(Game *)newGame;
+- (void)moveFromIndex:(NSInteger)oldIndex toNewIndex:(NSInteger)newIndex;
 
 @end
