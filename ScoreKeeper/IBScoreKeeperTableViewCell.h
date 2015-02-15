@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
-@property (nonatomic, strong) Player *player;
+@property (nonatomic, strong) NSDictionary *playerDictionary;
 
 @end

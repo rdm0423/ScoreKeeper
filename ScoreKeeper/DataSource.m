@@ -32,10 +32,10 @@ static NSString * const cellIdentifier = @"identifier";
     IBScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     // update player info for the table view cell
-    cell.player = [PlayerController sharedInstance].players[indexPath.row];
-    cell.textField.text = cell.player.name;
-    cell.scoreLabel.text = cell.player.score;
-    cell.stepper.value = [cell.player.score doubleValue];
+//    cell.player = [PlayerController sharedInstance].players[indexPath.row];
+//    cell.textField.text = cell.player.name;
+//    cell.scoreLabel.text = cell.player.score;
+//    cell.stepper.value = [cell.player.score doubleValue];
     
     return cell;
 }

@@ -56,10 +56,10 @@ static NSString * const gameCell = @"cell";
 // method to get index path for adding new cells
 - (NSIndexPath *)addNewCell:(UITableView *)tableView {
     
-    GameTableViewCell *cell = [[GameTableViewCell alloc] init];
+//    GameTableViewCell *cell = [[GameTableViewCell alloc] init];
     
     Game *game = [[Game alloc] init];
-    game.name = cell.textField.text;
+//    game.name = cell.textField.text;
     [[GameController sharedInstance] addGame:game];
     
     NSUInteger lastRow = [[GameController sharedInstance].games indexOfObject:game];

@@ -12,12 +12,16 @@
 #import "PlayerController.h"
 #import "IBScoreKeeperTableViewCell.h"
 
-@interface ViewController () <UITableViewDelegate>
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) DataSource *dataSource;
 
 @end
+
+static NSString * const cellIdentifier = @"identifier";
+static NSString * const nameKey = @"name";
+static NSString * const scoreKey = @"score";
 
 @implementation ViewController
 
@@ -33,7 +37,7 @@
     titleView.backgroundColor = [UIColor clearColor];
     titleView.font = [UIFont fontWithName:@"Futura" size:20];
     titleView.textColor = [UIColor whiteColor];
-    titleView.text = @"Score Keeper";
+    titleView.text = self.game.name;
     self.navigationItem.titleView = titleView;
     [titleView sizeToFit];
     
@@ -48,10 +52,13 @@
     self.tableView.rowHeight = 44;
     
     // data source stuff
-    self.dataSource = [DataSource new];
-    self.tableView.dataSource = self.dataSource;
-    [self.dataSource registerTableView:self.tableView];
-    [self.dataSource registerNib:self.tableView];
+//    self.dataSource = [DataSource new];
+//    self.tableView.dataSource = self.dataSource;
+//    [self.dataSource registerTableView:self.tableView];
+//    [self.dataSource registerNib:self.tableView];
+    self.tableView.dataSource = self;
+    [self.tableView registerClass:[IBScoreKeeperTableViewCell class] forCellReuseIdentifier:cellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"IBScoreKeeperTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     
     // delegate stuff
     self.tableView.delegate = self;
@@ -67,6 +74,22 @@
     [self.view addSubview:self.tableView];
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    IBScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    // update player info for the table view cell
+    cell.playerDictionary = self.game.players[indexPath.row];
+    cell.textField.text = cell.playerDictionary[nameKey];
+    cell.scoreLabel.text = cell.playerDictionary[scoreKey];
+    cell.stepper.value = [cell.playerDictionary[scoreKey] doubleValue];
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.game.players.count;
+}
+
 - (void)done {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -80,7 +103,19 @@
 
 // method to add new cells
 - (IBAction)addItem:(id)sender {
-    NSIndexPath *indexPath = [self.dataSource addNewCell:self.tableView];
+    
+    Player *player = [[Player alloc] init];
+    NSDictionary *playerDictionary = [player playerDictionary];
+    
+    Game *game = [[Game alloc] init];
+    game.name = [NSString stringWithFormat:@"%@", self.game.name];
+    game.players = [[NSMutableArray alloc] initWithArray:self.game.players];
+    [game.players addObject:playerDictionary];
+    [[GameController sharedInstance] replaceGame:self.game withGame:game];
+    self.game = game;
+    
+    NSInteger lastRow = [game.players indexOfObject:playerDictionary];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }

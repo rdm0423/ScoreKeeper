@@ -73,10 +73,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    GameTableViewCell *cell = ((GameTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath]);
-    
     ViewController *viewController = [[ViewController alloc] init];
-    viewController.game = cell.game;
+    viewController.game = [[GameController sharedInstance].games objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:viewController animated:YES];
     
 }

@@ -46,14 +46,14 @@ static NSString * const scoreKey = @"score";
 
 - (void)save {
     
-    Player *player = [[Player alloc] initWithDictionary:@{nameKey: self.textField.text, scoreKey: [NSString stringWithFormat:@"%d", (int) self.stepper.value]}];
+//    Player *player = [[Player alloc] initWithDictionary:@{nameKey: self.textField.text, scoreKey: [NSString stringWithFormat:@"%d", (int) self.stepper.value]}];
     
-    if (self.player) {
-        [[PlayerController sharedInstance] replacePlayer:self.player withPlayer:player];
-    } else {
-        [[PlayerController sharedInstance] addPlayer:player];
-    }
-    self.player = player;
+//    if (self.player) {
+//        [[PlayerController sharedInstance] replacePlayer:self.player withPlayer:player];
+//    } else {
+//        [[PlayerController sharedInstance] addPlayer:player];
+//    }
+//    self.player = player;
 
 }
 
