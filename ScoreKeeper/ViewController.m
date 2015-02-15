@@ -101,6 +101,27 @@ static NSString * const scoreKey = @"score";
 
 }
 
+// method to ensure table view commit a delete command
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        Game *game = [[Game alloc] init];
+        game.name = [NSString stringWithFormat:@"%@", self.game.name];
+        game.players = [[NSMutableArray alloc] initWithArray:self.game.players];
+        
+        NSDictionary *playerDictionary = game.players[indexPath.row];
+        
+        [game.players removeObjectIdenticalTo:playerDictionary];
+        [[GameController sharedInstance] replaceGame:self.game withGame:game];
+        self.game = game;
+        
+        // remove the cell from the table view with an animation
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
+}
+
 // method to add new cells
 - (IBAction)addItem:(id)sender {
     
