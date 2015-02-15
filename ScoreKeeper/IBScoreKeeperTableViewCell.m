@@ -31,11 +31,9 @@ static NSString * const scoreKey = @"score";
 }
 
 - (IBAction)scoreStepper:(id)sender {
-    self.stepper = sender;
-    double stepperValue = self.stepper.value;
-    
-    self.scoreLabel.text = [NSString stringWithFormat:@"%d", (int) stepperValue];
-    [self save];
+
+    UIStepper *stepper = sender;
+    [_delegate valueChangedForCellStepper:stepper cell:self];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

@@ -9,11 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "Player.h"
 
+@protocol IBScoreKeeperTableViewCellDelegate;
+
 @interface IBScoreKeeperTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
 @property (nonatomic, strong) NSDictionary *playerDictionary;
+@property (nonatomic, weak) id<IBScoreKeeperTableViewCellDelegate>delegate;
+
+@end
+
+@protocol IBScoreKeeperTableViewCellDelegate <NSObject>
+
+- (void)valueChangedForCellStepper:(UIStepper *)stepper cell:(IBScoreKeeperTableViewCell *)cell;
 
 @end

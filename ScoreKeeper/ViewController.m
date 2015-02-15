@@ -12,7 +12,7 @@
 #import "PlayerController.h"
 #import "IBScoreKeeperTableViewCell.h"
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource, IBScoreKeeperTableViewCellDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) DataSource *dataSource;
@@ -83,6 +83,7 @@ static NSString * const scoreKey = @"score";
     cell.scoreLabel.text = cell.playerDictionary[scoreKey];
     cell.stepper.value = [cell.playerDictionary[scoreKey] doubleValue];
     
+    cell.delegate = self;
     return cell;
 }
 
@@ -149,6 +150,27 @@ static NSString * const scoreKey = @"score";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma custom delegate method
+
+- (void)valueChangedForCellStepper:(UIStepper *)stepper cell:(IBScoreKeeperTableViewCell *)cell {
+
+    double stepperValue = stepper.value;
+    cell.scoreLabel.text = [NSString stringWithFormat:@"%d", (int) stepperValue];
+    
+    NSDictionary *playerDictionary = @{nameKey: cell.textField.text, scoreKey: cell.scoreLabel.text};
+    
+    Game *game = [[Game alloc] init];
+    game.name = [NSString stringWithFormat:@"%@", self.game.name];
+    game.players = [[NSMutableArray alloc] initWithArray:self.game.players];
+    NSUInteger index = [game.players indexOfObject:cell.playerDictionary];
+    [game.players insertObject:playerDictionary atIndex:index];
+    [game.players removeObjectIdenticalTo:cell.playerDictionary];
+    [[GameController sharedInstance] replaceGame:self.game withGame:game];
+    
+    self.game = game;
+    cell.playerDictionary = playerDictionary;
 }
 
 @end

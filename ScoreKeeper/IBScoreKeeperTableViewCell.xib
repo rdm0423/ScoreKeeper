@@ -30,7 +30,7 @@
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AUH-kl-k3m">
                         <rect key="frame" x="8" y="7" width="97" height="30"/>
                         <color key="textColor" red="1" green="0.64847822649999998" blue="0.33680397750000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                         <connections>
                             <outlet property="delegate" destination="KGk-i7-Jjw" id="10x-vp-6T8"/>
