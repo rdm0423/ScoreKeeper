@@ -15,12 +15,13 @@
 
 static NSString * const nameKey = @"name";
 static NSString * const scoreKey = @"score";
-static NSString * const playerKey = @"player";
 
 @implementation IBScoreKeeperTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.textField.tintColor = [UIColor orangeColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

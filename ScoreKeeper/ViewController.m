@@ -45,6 +45,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.rowHeight = 44;
     
     // data source stuff
     self.dataSource = [DataSource new];

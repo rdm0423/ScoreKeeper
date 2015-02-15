@@ -36,7 +36,6 @@ static NSString * const gamesKey = @"games";
     }
     
     if (self.players) {
-        self.players = [PlayerController sharedInstance].players;
         dictionary[playersKey] = self.players;
     }
     

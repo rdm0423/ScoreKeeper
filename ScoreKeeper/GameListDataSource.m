@@ -8,6 +8,7 @@
 
 #import "GameListDataSource.h"
 #import "GameController.h"
+#import "GameTableViewCell.h"
 
 static NSString * const gameCell = @"cell";
 
@@ -15,14 +16,20 @@ static NSString * const gameCell = @"cell";
 
 - (void)registerTableView:(UITableView *)tableView {
     
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:gameCell];
+    [tableView registerClass:[GameTableViewCell class] forCellReuseIdentifier:gameCell];
+}
+
+- (void)registerNib:(UITableView *)tableView {
+    
+    [tableView registerNib:[UINib nibWithNibName:@"GameTableViewCell" bundle:nil] forCellReuseIdentifier:gameCell];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:gameCell];
+    GameTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:gameCell];
     
-    cell.textLabel.text = @"new game";
+    cell.game = [GameController sharedInstance].games[indexPath.row];
+    cell.textField.text = cell.game.name;
     
     return cell;
 }
@@ -49,7 +56,10 @@ static NSString * const gameCell = @"cell";
 // method to get index path for adding new cells
 - (NSIndexPath *)addNewCell:(UITableView *)tableView {
     
+    GameTableViewCell *cell = [[GameTableViewCell alloc] init];
+    
     Game *game = [[Game alloc] init];
+    game.name = cell.textField.text;
     [[GameController sharedInstance] addGame:game];
     
     NSUInteger lastRow = [[GameController sharedInstance].games indexOfObject:game];

@@ -21,6 +21,8 @@
 		725835A31A8EAC0500479EFD /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 725835A21A8EAC0500479EFD /* Game.m */; };
 		725835A61A8EAE7200479EFD /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725835A51A8EAE7200479EFD /* GameController.m */; };
 		725835A91A8EB3D900479EFD /* GameListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 725835A81A8EB3D900479EFD /* GameListDataSource.m */; };
+		725835C01A901D1300479EFD /* GameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 725835BE1A901D1300479EFD /* GameTableViewCell.m */; };
+		725835C11A901D1300479EFD /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725835BF1A901D1300479EFD /* GameTableViewCell.xib */; };
 		72A2BD381A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A2BD361A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m */; };
 		72A2BD391A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A2BD371A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,9 @@
 		725835A51A8EAE7200479EFD /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		725835A71A8EB3D900479EFD /* GameListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameListDataSource.h; sourceTree = "<group>"; };
 		725835A81A8EB3D900479EFD /* GameListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameListDataSource.m; sourceTree = "<group>"; };
+		725835BD1A901D1300479EFD /* GameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTableViewCell.h; sourceTree = "<group>"; };
+		725835BE1A901D1300479EFD /* GameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTableViewCell.m; sourceTree = "<group>"; };
+		725835BF1A901D1300479EFD /* GameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
 		72A2BD351A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBScoreKeeperTableViewCell.h; sourceTree = "<group>"; };
 		72A2BD361A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBScoreKeeperTableViewCell.m; sourceTree = "<group>"; };
 		72A2BD371A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBScoreKeeperTableViewCell.xib; sourceTree = "<group>"; };
@@ -114,6 +119,9 @@
 			children = (
 				722C98FD1A85C6890097D7CA /* AppDelegate.h */,
 				722C98FE1A85C6890097D7CA /* AppDelegate.m */,
+				725835BD1A901D1300479EFD /* GameTableViewCell.h */,
+				725835BE1A901D1300479EFD /* GameTableViewCell.m */,
+				725835BF1A901D1300479EFD /* GameTableViewCell.xib */,
 				7258359E1A8EAB8500479EFD /* GameListViewController.h */,
 				7258359F1A8EAB8500479EFD /* GameListViewController.m */,
 				725835A71A8EB3D900479EFD /* GameListDataSource.h */,
@@ -247,6 +255,7 @@
 				72A2BD391A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.xib in Resources */,
 				722C990A1A85C6890097D7CA /* LaunchScreen.xib in Resources */,
 				722C99071A85C6890097D7CA /* Images.xcassets in Resources */,
+				725835C11A901D1300479EFD /* GameTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +283,7 @@
 				725835A31A8EAC0500479EFD /* Game.m in Sources */,
 				725835A01A8EAB8500479EFD /* GameListViewController.m in Sources */,
 				7258352F1A8D661F00479EFD /* Player.m in Sources */,
+				725835C01A901D1300479EFD /* GameTableViewCell.m in Sources */,
 				725835321A8D679800479EFD /* PlayerController.m in Sources */,
 				72A2BD381A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m in Sources */,
 			);

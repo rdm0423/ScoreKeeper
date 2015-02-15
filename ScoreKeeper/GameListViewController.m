@@ -42,12 +42,14 @@
     // add table view
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView.rowHeight = 44;
     [self.view addSubview:self.tableView];
     
     // data source stuff
     self.dataSource = [GameListDataSource new];
     self.tableView.dataSource = self.dataSource;
     [self.dataSource registerTableView:self.tableView];
+    [self.dataSource registerNib:self.tableView];
     
     // delegate stuff
     self.tableView.delegate = self;
