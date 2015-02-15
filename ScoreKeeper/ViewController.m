@@ -59,11 +59,16 @@
     // set navigation bar items
     UINavigationItem *navItem = self.navigationItem;
 //    navItem.leftBarButtonItem = self.editButtonItem;
+    navItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(done)];
     navItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     navItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem:)];
     navItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     
     [self.view addSubview:self.tableView];
+}
+
+- (void)done {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 // enable editing mode

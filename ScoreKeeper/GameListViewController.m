@@ -9,6 +9,7 @@
 #import "GameListViewController.h"
 #import "GameListDataSource.h"
 #import "ViewController.h"
+#import "GameTableViewCell.h"
 
 @interface GameListViewController () <UITableViewDelegate>
 
@@ -72,7 +73,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    GameTableViewCell *cell = ((GameTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath]);
+    
     ViewController *viewController = [[ViewController alloc] init];
+    viewController.game = cell.game;
     [self.navigationController pushViewController:viewController animated:YES];
     
 }

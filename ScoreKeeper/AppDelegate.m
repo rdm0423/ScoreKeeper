@@ -37,7 +37,7 @@
 //         }
 //     forState:UIControlStateNormal];
     
-    NSDictionary *barButtonAppearanceDict = @{NSFontAttributeName: [UIFont fontWithName:@"Futura" size:12], NSForegroundColorAttributeName: [UIColor whiteColor]};
+    NSDictionary *barButtonAppearanceDict = @{NSFontAttributeName: [UIFont fontWithName:@"Futura" size:16], NSForegroundColorAttributeName: [UIColor whiteColor]};
     [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
     
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[GameListViewController new]];

@@ -11,7 +11,7 @@
 @interface Game : NSObject
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSArray *players;
+@property (nonatomic, strong) NSMutableArray *players;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)gameDictionary;

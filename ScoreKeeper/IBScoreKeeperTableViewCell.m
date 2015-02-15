@@ -53,7 +53,7 @@ static NSString * const scoreKey = @"score";
     } else {
         [[PlayerController sharedInstance] addPlayer:player];
     }
-//    self.player = player;
+    self.player = player;
 
 }
 

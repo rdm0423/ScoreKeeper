@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameController.h"
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, strong) Game *game;
 
 @end
-
