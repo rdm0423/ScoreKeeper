@@ -43,7 +43,7 @@ static NSString * const scoreKey = @"score";
     
     // set navigation bar background color
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = [UIColor orangeColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.19 green:0.6 blue:0.87 alpha:1];
     
     // Add UITableView
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];

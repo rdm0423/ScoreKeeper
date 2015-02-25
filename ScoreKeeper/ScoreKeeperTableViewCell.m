@@ -36,7 +36,7 @@ static CGFloat height = 30;
     self.nameField = [[UITextField alloc] initWithFrame:CGRectMake(margin, 10, 110, height)];
     self.nameField.placeholder = @"name";
     self.nameField.font = [UIFont fontWithName:@"Futura" size:16];
-    self.nameField.textColor = [UIColor orangeColor];
+    self.nameField.textColor = [UIColor blackColor];
     self.nameField.delegate = self;
     [self.contentView addSubview:self.nameField];
     
@@ -44,14 +44,14 @@ static CGFloat height = 30;
     self.scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.contentView.frame.size.width / 2 + margin, 10, 40, height)];
     self.scoreLabel.text = @"0";
     self.scoreLabel.font = [UIFont fontWithName:@"Futura" size:16];
-    self.scoreLabel.textColor = [UIColor orangeColor];
+    self.scoreLabel.textColor = [UIColor blackColor];
     [self.contentView addSubview:self.scoreLabel];
     
     // UIStepper to increment/decrement the score/value
     self.stepper = [[UIStepper alloc] initWithFrame:CGRectMake(self.contentView.frame.size.width - margin * 4, 10, 20, height)];
     self.stepper.minimumValue = 0;
     self.stepper.maximumValue = 1000;
-    self.stepper.tintColor = [UIColor orangeColor];
+    self.stepper.tintColor = [UIColor blueColor];
     [self.stepper addTarget:self action:@selector(scoreStepper:) forControlEvents:UIControlEventValueChanged];
     [self.contentView addSubview:self.stepper];
     
