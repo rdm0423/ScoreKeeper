@@ -2,18 +2,25 @@
 //  Game.h
 //  ScoreKeeper
 //
-//  Created by sombra on 2015-02-13.
+//  Created by Ross McIlwaine on 2/25/15.
 //  Copyright (c) 2015 sombra. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Game : NSObject
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSMutableArray *players;
+@interface Game : NSManagedObject
 
-- (id)initWithDictionary:(NSDictionary *)dictionary;
-- (NSDictionary *)gameDictionary;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSSet *players;
+@end
+
+@interface Game (CoreDataGeneratedAccessors)
+
+- (void)addPlayersObject:(NSManagedObject *)value;
+- (void)removePlayersObject:(NSManagedObject *)value;
+- (void)addPlayers:(NSSet *)values;
+- (void)removePlayers:(NSSet *)values;
 
 @end

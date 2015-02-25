@@ -1,17 +1,19 @@
 //
-//  Game.m
+//  Player.m
 //  ScoreKeeper
 //
 //  Created by Ross McIlwaine on 2/25/15.
 //  Copyright (c) 2015 sombra. All rights reserved.
 //
 
+#import "Player.h"
 #import "Game.h"
 
 
-@implementation Game
+@implementation Player
 
-@dynamic title;
-@dynamic players;
+@dynamic name;
+@dynamic score;
+@dynamic games;
 
 @end
