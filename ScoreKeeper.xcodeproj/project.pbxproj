@@ -14,8 +14,6 @@
 		722C990A1A85C6890097D7CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722C99081A85C6890097D7CA /* LaunchScreen.xib */; };
 		722C99161A85C6890097D7CA /* ScoreKeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 722C99151A85C6890097D7CA /* ScoreKeeperTests.m */; };
 		722C99211A85C7930097D7CA /* ScoreKeeperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722C99201A85C7930097D7CA /* ScoreKeeperTableViewCell.m */; };
-		722C99241A85C8770097D7CA /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 722C99231A85C8770097D7CA /* DataSource.m */; };
-		725835321A8D679800479EFD /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725835311A8D679800479EFD /* PlayerController.m */; };
 		725835A01A8EAB8500479EFD /* GameListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7258359F1A8EAB8500479EFD /* GameListViewController.m */; };
 		725835A61A8EAE7200479EFD /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725835A51A8EAE7200479EFD /* GameController.m */; };
 		725835A91A8EB3D900479EFD /* GameListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 725835A81A8EB3D900479EFD /* GameListDataSource.m */; };
@@ -27,6 +25,7 @@
 		FF6BEA0A1A9E7A3700140A56 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6BEA091A9E7A3700140A56 /* Stack.m */; };
 		FF6BEA0D1A9E7FD000140A56 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6BEA0C1A9E7FD000140A56 /* Game.m */; };
 		FF6BEA101A9E7FD000140A56 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6BEA0F1A9E7FD000140A56 /* Player.m */; };
+		FF6BEA121A9E93E200140A56 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6BEA111A9E93E200140A56 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +53,6 @@
 		722C99151A85C6890097D7CA /* ScoreKeeperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreKeeperTests.m; sourceTree = "<group>"; };
 		722C991F1A85C7930097D7CA /* ScoreKeeperTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreKeeperTableViewCell.h; sourceTree = "<group>"; };
 		722C99201A85C7930097D7CA /* ScoreKeeperTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreKeeperTableViewCell.m; sourceTree = "<group>"; };
-		722C99221A85C8770097D7CA /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
-		722C99231A85C8770097D7CA /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
-		725835301A8D679800479EFD /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
-		725835311A8D679800479EFD /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 		7258359E1A8EAB8500479EFD /* GameListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameListViewController.h; sourceTree = "<group>"; };
 		7258359F1A8EAB8500479EFD /* GameListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameListViewController.m; sourceTree = "<group>"; };
 		725835A41A8EAE7200479EFD /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
@@ -77,6 +72,7 @@
 		FF6BEA0C1A9E7FD000140A56 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		FF6BEA0E1A9E7FD000140A56 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		FF6BEA0F1A9E7FD000140A56 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		FF6BEA111A9E93E200140A56 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF6BEA121A9E93E200140A56 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +97,7 @@
 		722C98ED1A85C6890097D7CA = {
 			isa = PBXGroup;
 			children = (
+				FF6BEA111A9E93E200140A56 /* CoreData.framework */,
 				722C98F81A85C6890097D7CA /* ScoreKeeper */,
 				722C99121A85C6890097D7CA /* ScoreKeeperTests */,
 				722C98F71A85C6890097D7CA /* Products */,
@@ -123,7 +121,6 @@
 				FF6BE9FE1A9E765C00140A56 /* Game View */,
 				FF6BE9FF1A9E767900140A56 /* Score Tracking View */,
 				FF6BE9FD1A9E763700140A56 /* Game Model */,
-				FF6BE9FC1A9E762600140A56 /* Player Model */,
 				FF6BEA061A9E7A0800140A56 /* Model - Core Data */,
 				722C99061A85C6890097D7CA /* Images.xcassets */,
 				722C99081A85C6890097D7CA /* LaunchScreen.xib */,
@@ -158,16 +155,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FF6BE9FC1A9E762600140A56 /* Player Model */ = {
-			isa = PBXGroup;
-			children = (
-				725835301A8D679800479EFD /* PlayerController.h */,
-				725835311A8D679800479EFD /* PlayerController.m */,
-			);
-			name = "Player Model";
-			path = ..;
-			sourceTree = "<group>";
-		};
 		FF6BE9FD1A9E763700140A56 /* Game Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,18 +183,8 @@
 			children = (
 				FF6BEA021A9E790900140A56 /* Controllers */,
 				FF6BEA011A9E78E400140A56 /* Views */,
-				FF6BEA001A9E78C400140A56 /* Datasource */,
 			);
 			name = "Score Tracking View";
-			sourceTree = "<group>";
-		};
-		FF6BEA001A9E78C400140A56 /* Datasource */ = {
-			isa = PBXGroup;
-			children = (
-				722C99221A85C8770097D7CA /* DataSource.h */,
-				722C99231A85C8770097D7CA /* DataSource.m */,
-			);
-			name = Datasource;
 			sourceTree = "<group>";
 		};
 		FF6BEA011A9E78E400140A56 /* Views */ = {
@@ -356,7 +333,6 @@
 			files = (
 				725835A91A8EB3D900479EFD /* GameListDataSource.m in Sources */,
 				722C99211A85C7930097D7CA /* ScoreKeeperTableViewCell.m in Sources */,
-				722C99241A85C8770097D7CA /* DataSource.m in Sources */,
 				FF6BEA0A1A9E7A3700140A56 /* Stack.m in Sources */,
 				FF6BEA101A9E7FD000140A56 /* Player.m in Sources */,
 				FF6BEA051A9E79FB00140A56 /* Model.xcdatamodeld in Sources */,
@@ -367,7 +343,6 @@
 				722C98FC1A85C6890097D7CA /* main.m in Sources */,
 				725835A01A8EAB8500479EFD /* GameListViewController.m in Sources */,
 				725835C01A901D1300479EFD /* GameTableViewCell.m in Sources */,
-				725835321A8D679800479EFD /* PlayerController.m in Sources */,
 				72A2BD381A896F1500CF6DC8 /* IBScoreKeeperTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,6 +14,6 @@
 
 @dynamic name;
 @dynamic score;
-@dynamic games;
+@dynamic game;
 
 @end

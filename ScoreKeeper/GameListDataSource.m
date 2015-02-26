@@ -29,7 +29,7 @@ static NSString * const gameCell = @"cell";
     GameTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:gameCell];
     
     cell.game = [GameController sharedInstance].games[indexPath.row];
-    cell.textField.text = cell.game.name;
+    cell.textField.text = cell.game.title;
     
     return cell;
 }
@@ -57,10 +57,10 @@ static NSString * const gameCell = @"cell";
 - (NSIndexPath *)addNewCell:(UITableView *)tableView {
     
 //    GameTableViewCell *cell = [[GameTableViewCell alloc] init];
-    
-    Game *game = [[Game alloc] init];
+//    Game *game = [[Game alloc] init];
 //    game.name = cell.textField.text;
-    [[GameController sharedInstance] addGame:game];
+    [[GameController sharedInstance] addGameWithTitle:@"Game"];
+    Game *game = [[GameController sharedInstance].games lastObject];
     
     NSUInteger lastRow = [[GameController sharedInstance].games indexOfObject:game];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
@@ -68,14 +68,14 @@ static NSString * const gameCell = @"cell";
     return indexPath;
 }
 
-// methods for reordering rows
+//// methods for reordering rows
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     
-    [[GameController sharedInstance] moveFromIndex:sourceIndexPath.row toNewIndex:destinationIndexPath.row];
+//    [[GameController sharedInstance] moveFromIndex:sourceIndexPath.row toNewIndex:destinationIndexPath.row];
 }
 
 @end

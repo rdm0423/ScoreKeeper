@@ -8,16 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "Game.h"
+#import "Player.h"
 
 @interface GameController : NSObject
 
 @property (nonatomic, strong, readonly) NSArray *games;
+@property (nonatomic, strong, readonly) NSArray *players;
 
 + (GameController *)sharedInstance;
 
-- (void)addGame:(Game *)game;
+- (void)addGameWithTitle:(NSString *)title;
 - (void)removeGame:(Game *)game;
-- (void)replaceGame:(Game *)oldGame withGame:(Game *)newGame;
-- (void)moveFromIndex:(NSInteger)oldIndex toNewIndex:(NSInteger)newIndex;
+- (void)addPlayersToGames:(NSString *)title name:(NSString *)text andScore:(NSInteger *)score;
+- (Player *)createPlayerWithName:(NSString *)name andScore:(NSString *)score;
+- (void)removePlayer:(Player *)player;
+
+- (void)synchronize;
 
 @end

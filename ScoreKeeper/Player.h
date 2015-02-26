@@ -15,6 +15,6 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * score;
-@property (nonatomic, retain) Game *games;
+@property (nonatomic, retain) Game *game;
 
 @end

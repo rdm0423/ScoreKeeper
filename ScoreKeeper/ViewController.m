@@ -7,15 +7,14 @@
 //
 
 #import "ViewController.h"
-#import "DataSource.h"
 #import "Player.h"
-#import "PlayerController.h"
 #import "IBScoreKeeperTableViewCell.h"
+#import "Game.h"
+#import "Stack.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, IBScoreKeeperTableViewCellDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) DataSource *dataSource;
 
 @end
 
@@ -37,7 +36,7 @@ static NSString * const scoreKey = @"score";
     titleView.backgroundColor = [UIColor clearColor];
     titleView.font = [UIFont fontWithName:@"Futura" size:20];
     titleView.textColor = [UIColor whiteColor];
-    titleView.text = self.game.name;
+    titleView.text = self.game.title;
     self.navigationItem.titleView = titleView;
     [titleView sizeToFit];
     
@@ -51,11 +50,7 @@ static NSString * const scoreKey = @"score";
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.rowHeight = 44;
     
-    // data source stuff
-//    self.dataSource = [DataSource new];
-//    self.tableView.dataSource = self.dataSource;
-//    [self.dataSource registerTableView:self.tableView];
-//    [self.dataSource registerNib:self.tableView];
+
     self.tableView.dataSource = self;
     [self.tableView registerClass:[IBScoreKeeperTableViewCell class] forCellReuseIdentifier:cellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:@"IBScoreKeeperTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
@@ -78,12 +73,14 @@ static NSString * const scoreKey = @"score";
     IBScoreKeeperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     // update player info for the table view cell
-    cell.playerDictionary = self.game.players[indexPath.row];
-    cell.textField.text = cell.playerDictionary[nameKey];
-    cell.scoreLabel.text = cell.playerDictionary[scoreKey];
-    cell.stepper.value = [cell.playerDictionary[scoreKey] doubleValue];
+    cell.player = self.game.players[indexPath.row];
+    cell.textField.text = cell.player.name;
+    cell.scoreLabel.text = cell.player.score;
+    cell.stepper.value = [cell.player.score doubleValue];
+
     
     cell.delegate = self;
+    
     return cell;
 }
 
@@ -107,36 +104,20 @@ static NSString * const scoreKey = @"score";
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        Game *game = [[Game alloc] init];
-        game.name = [NSString stringWithFormat:@"%@", self.game.name];
-        game.players = [[NSMutableArray alloc] initWithArray:self.game.players];
-        
-        NSDictionary *playerDictionary = game.players[indexPath.row];
-        
-        [game.players removeObjectIdenticalTo:playerDictionary];
-        [[GameController sharedInstance] replaceGame:self.game withGame:game];
-        self.game = game;
+        [[GameController sharedInstance] removeGame:[[GameController sharedInstance].games objectAtIndex:indexPath.row]];
         
         // remove the cell from the table view with an animation
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
     }
 }
 
 // method to add new cells
 - (IBAction)addItem:(id)sender {
     
-    Player *player = [[Player alloc] init];
-    NSDictionary *playerDictionary = [player playerDictionary];
+    [[GameController sharedInstance] addPlayersToGames:self.game name:@"Player" andScore:[NSNumber score]]; /////// David only has addPlayers to Game
+    Player *player = [self.game.players lastObject];
     
-    Game *game = [[Game alloc] init];
-    game.name = [NSString stringWithFormat:@"%@", self.game.name];
-    game.players = [[NSMutableArray alloc] initWithArray:self.game.players];
-    [game.players addObject:playerDictionary];
-    [[GameController sharedInstance] replaceGame:self.game withGame:game];
-    self.game = game;
-    
-    NSInteger lastRow = [game.players indexOfObject:playerDictionary];
+    NSInteger lastRow = [self.game.players indexOfObject:player];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
@@ -159,18 +140,12 @@ static NSString * const scoreKey = @"score";
     double stepperValue = stepper.value;
     cell.scoreLabel.text = [NSString stringWithFormat:@"%d", (int) stepperValue];
     
-    NSDictionary *playerDictionary = @{nameKey: cell.textField.text, scoreKey: cell.scoreLabel.text};
-    
-    Game *game = [[Game alloc] init];
-    game.name = [NSString stringWithFormat:@"%@", self.game.name];
-    game.players = [[NSMutableArray alloc] initWithArray:self.game.players];
-    NSUInteger index = [game.players indexOfObject:cell.playerDictionary];
-    [game.players insertObject:playerDictionary atIndex:index];
-    [game.players removeObjectIdenticalTo:cell.playerDictionary];
-    [[GameController sharedInstance] replaceGame:self.game withGame:game];
-    
-    self.game = game;
-    cell.playerDictionary = playerDictionary;
+    if  (cell.player) {
+        cell.player.name = cell.textField.text;
+        cell.player.score = cell.scoreLabel.text;
+        
+        [[GameController sharedInstance] synchronize];
+    }
 }
 
 @end

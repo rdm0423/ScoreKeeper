@@ -39,12 +39,12 @@ static NSString * const gamesKey = @"games";
 }
 
 - (void)save {
-    Game *game = [[Game alloc] initWithDictionary:@{gameNameKey: self.textField.text, playersKey:@[]}];
     
     if (self.game) {
-        [[GameController sharedInstance] replaceGame:self.game withGame:game];
+        self.game.title = self.textField.text;
+        [[GameController sharedInstance] synchronize];
     } else {
-        [[GameController sharedInstance] addGame:game];
+        [[GameController sharedInstance] addGameWithTitle:self.textField.text];
     }
 }
 

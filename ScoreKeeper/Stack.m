@@ -6,7 +6,7 @@
 //
 
 #import "Stack.h"
-#import <CoreData/CoreData.h>
+
 
 @interface Stack ()
 

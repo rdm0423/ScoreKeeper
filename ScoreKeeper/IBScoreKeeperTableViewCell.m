@@ -7,7 +7,6 @@
 //
 
 #import "IBScoreKeeperTableViewCell.h"
-#import "PlayerController.h"
 
 @interface IBScoreKeeperTableViewCell () <UITextFieldDelegate>
 
