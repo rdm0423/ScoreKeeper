@@ -13,7 +13,7 @@
 @interface Game : NSManagedObject
 
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSSet *players;
+@property (nonatomic, retain) NSOrderedSet *players;
 @end
 
 @interface Game (CoreDataGeneratedAccessors)
